@@ -1,4 +1,13 @@
 # WorkShop_PHP
+* !!! PB de sécurité 
+
+```
+symfony/security-http 
+&
+symfony/http-foundation
+sont à monter de versions
+```
+
 * Workshop fait avec Benjamin Oriol et DubMan21
 
 ```
