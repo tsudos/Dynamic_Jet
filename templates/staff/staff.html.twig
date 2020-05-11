@@ -1,0 +1,26 @@
+{% extends "common/layout.html.twig" %}
+
+    {% block title %}{{ parent() }}- Equipe {% endblock title %}
+    {% block content %}
+    {% include "common/alert-success.html.twig" %}
+
+    <a href="{{ path('staff.create') }}" class="btn btn-success"><i class="fas fa-plus"></i> Ajouter un nouveau membre</a>
+
+    <div class="row">
+            {% for user in users %} 
+            <div class="col-lg-6">  
+                <h2>{{ user.status }}</h2>
+                    <div class="card text-white bg-primary mb-5 card-staff" style="max-width: 15rem;">
+                        <img class=" card-header-staff" src="/assets/img/user_{{user.id}}.jpg" alt="">
+                        <div class="card-body card-body-staff">
+                            <span class="typographie">{{ user.firstname }} {{ user.lastname }}</span><br>
+                            <span class="typographie">{{ user.contracttype }}</span><br>
+                            <span class="typographie">{{ user.ssnumber }}</span><br>
+                            <a href="{{ path('staff.detail', {id: user.id}) }}" class="btn btn-outline-success">Voir le profil</a>
+                        </div>
+                    </div>    
+            </div>
+        {% endfor %}
+    </div> 
+        
+    {% endblock %}

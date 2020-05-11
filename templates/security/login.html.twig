@@ -1,0 +1,33 @@
+{% extends '/common/layout.html.twig' %}
+
+{% block body %}
+{% include "common/alert-success.html.twig" %}
+
+<div class="login-background">
+    <div class="row col-sm-12">
+            <div class="card card-login">
+              <div class="card-body">
+                <h1>Connectez-vous</h1>
+
+              <form action="{{ path('security_login') }}" method="post">
+                    <div class="form-group">
+                        <label>Email</label>
+                    <input type="text" class="form-control" required placeholder="Entrer votre email" name="_username" value="{{ lastusername }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe</label><br>
+                        <a href="{{ path('security_forgot') }}"><small class="text-success">Mot de passe oublié ?</small></a><br>
+                        {% if error %}
+                          <small class="text-danger">Mot de passe invalide pour cette email</small>
+                        {% endif %}
+                        <input type="password" class="form-control" required placeholder="Entrer votre mot de passe" name="_password">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-warning">Connexion</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+    </div>
+</div>
+{% endblock %}

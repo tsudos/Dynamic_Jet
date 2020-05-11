@@ -1,0 +1,51 @@
+{% extends "common/layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} - {{ equipment.name ?? 'Créer un équipement' }}
+{% endblock %}
+
+{% block content %}
+
+  <h2>{{ equipment.name ?? 'Créer un équipement' }}</h2>
+  <div class="card card-table">
+    <div class="card-body">
+      {{form_start(form)}}
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_row(form.name) }}
+            </div>
+            <div class="col-md-6 mt-4">
+              {{ form_row(form.isValid) }}
+            </div>
+            <div class="col-md-6">
+              {{ form_row(form.description) }}
+            </div>
+            <div class="col-md-3">
+              {{ form_row(form.power) }}
+            </div>
+            <div class="col-12">
+              <div class="row">
+                {% for index, price in form.price %}
+                  <div class="col-md-3">
+                    <label for="equipment_price_{{index}}">
+                      {{ index == 0 ? 'Prix de 30min' }}
+                      {{ index == 1 ? 'Prix de 1h' }}
+                      {{ index == 2 ? 'Prix de 2h' }}
+                    </label>
+                    {{ form_errors(form.price) }}
+                    {{ form_widget(price) }}
+                  </div>
+                {% endfor %}
+                <span>{{ form_row(form.price) }}</span>
+              </div>
+            </div>
+        </div>
+        <div class="mt-5 float-right">
+            <a href="{{ path('equipment.list') }}" class="btn btn-outline-secondary"><i class="fas fa-reply-all"></i> Retour à la liste</a>
+            <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Sauvegarder</button>
+          </div> 
+        {{form_end(form)}}
+      </div>
+    </div>
+     
+{% endblock %}

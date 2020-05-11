@@ -1,0 +1,32 @@
+@startuml
+
+title Use Case Diagram - reservation
+
+:Staff:
+:Client:
+
+(LoginPage)
+(Run Process:Homepage) as (Proc1)
+usecase (List.Booking) as (Proc4)
+usecase (Create New Booking) as CNB
+usecase ( View dispo Staff) as VDS
+usecase ( Choose Activity) as CA
+usecase ( View dispo Equipement) as VDE
+usecase ( Choose New Date) as CND
+usecase ( Reservation Order Impress) as ROI
+
+Client .u.> (LoginPage) : NO!!!!
+
+Staff <-l->Client
+Staff -r-> (LoginPage)
+(LoginPage) -r-> (Proc1)
+(Proc1) -r-> (Proc4)
+(Proc4) -r-> (CNB)
+(CNB) ---> (CND)
+(CND) -l-> (CA)
+(CA) -l-> (VDS)
+(CA) -> (VDE)
+(VDS) -d-> (ROI)
+(VDE) -l-> (ROI)
+
+@enduml

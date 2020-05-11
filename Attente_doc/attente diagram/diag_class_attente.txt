@@ -1,0 +1,43 @@
+Staff
+    + getLastname : String
+    + getEmail : String
+    + getPassword : String
+    + getUsername : Null
+    + getSsNumber : String
+    + getHiringDate : Date
+    + getMeDate : Date
+    + getStatus : String
+    + getCoastalLicence : String
+    + getContractType : String
+    + getRoles : array
+    + getSalt : Null
+    + getBees : Boolean
+    + eraseCredentials
+
+    + setEmail() : String
+    + setPassword() : String
+    + setSsNumber() : String
+    + setHiringDate() : Date
+    + setMeDate() : Date
+    + setStatus() : String
+    + setCoastalLicence() : String
+    + setReduction() : String
+    + setContractType() : String
+    + setBees() : Boolean
+
+Customer
+
+    + setEmail() : String
+    + setAdress() : String
+    + setPhone() : String
+    + setBirthDate() : String
+    + setCoastalLicense() : String
+    + setReduction() : String
+
+    + getLastname : String
+    + getEmail : String
+    + getAdress : String
+    + getPhone : String
+    + getBirthDate : String
+    + getCoastalLicense : String
+    + getReduction : String

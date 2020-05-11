@@ -1,0 +1,45 @@
+{% extends 'common/layout.html.twig' %}
+
+{% block title %}
+  {{ parent() }} - Clients
+{% endblock %}
+
+{% block content %}
+  {% include "common/alert-success.html.twig" %}
+  {% include "common/modal-confirm.html.twig" %}
+
+  <h2>Liste des Clients</h2>
+
+  <div class="card card-table">
+    <div class="card-body">
+      <a href="{{path('customer_create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Nouveau Client</a></h3>
+      <table class="table table-striped mt-4">
+        <thead class="bg-primary text-white">
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Tel</th>
+            <th>Date anniversaire</th>
+            <th>Bon de reduction</th>
+            <th>Détails/modifications</th>
+            <th>Supprimer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for customer in customers %}
+            <tr>
+              <td>{{ customer.firstname }}</td>
+              <td>{{ customer.lastname }}</td>
+              <td>{{ customer.phone }}</td>
+              <td>{{ customer.BirthDate ? customer.BirthDate|date('d/m/Y') : '' }}</td>
+              <td>{{customer.BirthDate ? ((customer.BirthDate|date('d/m'))==("now"|date('d/m')) ? 'imprimer le BR' :'<i class="fas fa-times"></i>') : '<i class="fas fa-times"></i>' }}</td>
+              <td><a href="{{path('customer_edit',{'id': customer.id})}}"><i class="far fa-eye text-primary"></i></a></td>
+              <td><a href="{{path('customer_delete',{'id': customer.id})}}" class="confirmModalLink"><i class="fas fa-trash-alt text-danger"></i></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}
+

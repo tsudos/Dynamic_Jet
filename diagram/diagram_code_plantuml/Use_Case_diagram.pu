@@ -1,0 +1,52 @@
+@startuml
+
+
+title Use Case Diagram 
+
+
+rectangle Coming-Soon {
+    :Supervisor:
+    usecase (Create / View / Edit / Delete All) as CVEDA
+    :User Role: as User
+}
+
+
+:Staff:
+:Client:
+
+
+(LoginPage)
+(Run Process:Homepage) as (Proc1)
+usecase (List.Customer) as (Proc2)
+usecase (List.Staff) as (Proc3)
+usecase (List.Booking) as (Proc4)
+usecase (List.Equipement) as (Proc5)
+usecase (Log Out) as UC4
+usecase (Create / View / Edit / Delete Staff) as CVEDS
+usecase (Create / View / Edit / Delete Customer) as CVEDC
+usecase (Create / View / Edit / Delete Booking) as CVEDB
+usecase (Create / View / Edit / Delete Equipement) as CVEDE
+
+
+Client .left.> (LoginPage) : NO!!!!
+Supervisor ~~> (CVEDA): I am god
+User <~ Supervisor
+Staff ~> User
+User ~~> (LoginPage)
+User ~> (UC4)
+Staff -> (UC4)
+Staff --> (LoginPage)
+(LoginPage) --> (Proc1)
+(Proc1) --> (Proc2)
+(Proc1) --> (Proc3)
+(Proc1) --> (Proc4)
+(Proc1) --> (Proc5)
+(Proc2) -d-> (CVEDC)
+(Proc3) -d-> (CVEDS)
+(Proc4) -d-> (CVEDB)
+(Proc5) -d-> (CVEDE)
+
+
+
+
+@enduml

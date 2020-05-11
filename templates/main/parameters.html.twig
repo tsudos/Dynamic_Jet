@@ -1,0 +1,30 @@
+{% extends "common/layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} - Mes paramètres
+{% endblock %}
+
+{% block content %}
+  <h2>Mes paramètres</h2>
+
+  {% include "common/alert-success.html.twig" %}
+
+  <div class="card card-table">
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <strong>Compte</strong><small class="float-right">{{ app.user.firstname ~ ' ' ~ app.user.lastname }}</small>
+            </li>
+            <li class="list-group-item">
+                <strong>Email</strong><small class="float-right">{{ app.user.email }}</small>
+            </li>
+            <li class="list-group-item">
+                <a href="{{ path('staff.detail', {id: app.user.id}) }}" class="btn btn-outline-success"><i class="far fa-edit"></i> Changer mes informations</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{{ path('change-password') }}" class="btn btn-outline-success"><i class="far fa-edit"></i> Changer mon mot de passe</a>
+            </li>
+        </ul>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,151 @@
+@startuml
+
+title  Class Diagram
+
+skinparam classAttributeIconSize 0
+
+
+class Customer{
+    __ Attribut __
+    -Int id
+    -String firstname
+    -String lastname
+    -String email
+    -String adress
+    -String phone
+    -date birth_date
+    -String coastal_license
+    -int reduction
+
+    -- Method --
+    .. Getter ..
+    + getId() : Int
+    + getFirstname() : String
+    ..
+    and other Getters ...
+
+    .. Setter ..
+    + setFirstname() : String
+    + setLastname() : String
+        ..
+    and other Setters ...
+}
+
+class Equipement {
+    __ Attribut __
+    -Int id
+    -String name
+    -String description
+    -Int power
+    -Boolean isValid
+    -array price
+
+    -- Method --
+    .. Simple Getter ..
+    + getId() : Int
+    + getName() : String
+    + getDescription() : String
+    + getPower() : String
+    + getIsValid() : Boolean
+    + getPrice() : String
+
+    .. Simple setter ..
+    + setName() : String
+    + setDescription() : String
+    + setPower() : String
+    + setIsValid() : Boolean
+    + setPrice() : array
+
+}
+
+
+class Staff{
+    __ Attribut __
+    -Int id
+    -String firstname
+    -String lastname
+    -String email
+    -String ss_number
+    -date hiring_date
+    -date me_date
+    -String status
+    -String coastal_licence
+    -Boolean bees
+    -array roles
+    -int contract_type
+    .. encrypted ..
+    -String password
+
+    -- Method --
+    .. Simple Getter ..
+    + getId() : Int
+    + getFirstname() : String
+    ..
+    and other Getters ...
+
+    .. Simple setter ..
+    + setFirstname() : String
+    + setLastname() : String
+    ..
+    and other Setters ...
+}
+
+
+class Booking{
+    __ Attribut __
+    - id : int 
+	- date : datetime 
+	- start_date : datetime 
+	- end_date : datetime 
+	- staff_id : int
+	- equipment_id : int
+	- customer_id : int 
+
+
+    -- Method --
+    .. Simple Getter ..
+    + getId() : Int
+    + getdate() : datetime
+    ..
+    and other Getters ...
+
+    .. Simple setter ..
+    + setdate() : datetime
+    + setstart_date() : datetime
+    ..
+    and other Setters ...
+}
+
+
+class Leave {
+    __ Attribut __
+    - id : int 
+	- staff_id : int
+	- start_date : date 
+	- end_date : date
+	- type : enum
+	- details : text 
+
+
+    -- Method --
+    .. Simple Getter ..
+    + getId() : Int
+    + getType() : enum
+    ..
+    and other Getters ...
+
+
+    .. Simple setter ..
+    + setstart_date() : date
+    + setend_date() : date
+    ..
+    and other Setters ...
+}
+
+Booking "many"*-right-"many" Equipement: Composition
+Booking  "1" o-left- "1" Customer: Aggregation
+Booking "many"*-down-"many" Staff: Composition
+Staff "1" <-left-> "1" Leave: Association
+
+
+@enduml

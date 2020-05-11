@@ -1,0 +1,44 @@
+{% extends 'common/layout.html.twig' %}
+
+{% block title %}
+  {{ parent() }} - {{ customer.firstname ?? 'Renseigner un client' }} {{ customer.firstname ?? '' }}
+{% endblock %}
+
+
+{% block content %}
+  <h2>{{ customer.firstname ?? 'Renseigner un client' }} {{ customer.firstname ?? '' }}</h2>
+
+  <div class="card card-table">
+    <div class="card-body">
+      {{form_start(formCustomer)}} 
+        <div class="row">
+          <div class="col-md-6">       
+            {{ form_row(formCustomer.firstname) }}
+          </div>
+          <div class="col-md-6">       
+            {{ form_row(formCustomer.lastname) }}
+          </div>
+          <div class="col-md-12">       
+            {{ form_row(formCustomer.email) }}
+          </div>
+          <div class="col-12">
+            {{ form_row(formCustomer.adress) }}
+          </div>
+          <div class="col-md-6 col-lg-4">       
+            {{ form_row(formCustomer.phone) }}
+          </div>
+          <div class="col-md-6 col-lg-4 ">
+            {{ form_row(formCustomer.birth_date) }}
+          </div>
+          <div class="col-md-6 col-lg-4">
+            {{ form_row(formCustomer.coastal_license) }}
+          </div>
+        </div>
+        <div class="mt-5 float-right">
+          <a href="{{ path('customer') }}" class="btn btn-outline-secondary"><i class="fas fa-reply-all"></i> Retour à la liste</a>
+          <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Enregistrer</button>
+        </div>
+      {{form_end(formCustomer)}}
+    </div>
+  </div>
+{% endblock %}

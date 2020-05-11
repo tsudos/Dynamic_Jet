@@ -1,0 +1,44 @@
+{% extends "common/layout.html.twig" %}
+
+{% block title %}
+  {{ parent() }} - Equipements
+{% endblock %}
+
+{% block content %}
+
+  {% include "common/alert-success.html.twig" %}
+  {% include "common/modal-confirm.html.twig" %}
+
+
+  <h2>Equipements</h2>
+
+  <div class="card card-table">
+    <div class="card-body">
+      <a href="{{ path('equipment.create') }}" class="btn btn-success"><i class="fas fa-plus"></i> Créer un équipment</a>
+      <table class="table table-striped mt-4">
+        <thead class="bg-primary text-white">
+            <tr>
+              <th>Nom</th>
+              <th>Prix 30min</th>
+              <th>Prix 1h</th>
+              <th>Prix 2h</th>
+              <th>Détails / Editer</th>
+              <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for equipment in equipments %}
+            <tr>
+              <td>{{ equipment.name }}</td>
+              {% for price in equipment.price %}
+                <td>{{ price ? price ~ '€' : '<i class="fas fa-times"></i>' }}</td>
+              {% endfor %}
+              <td><a href="{{ path('equipment.view', {id: equipment.id}) }}"><i class="far fa-eye text-primary"></i></a></td>
+              <td><a href="{{ path('equipment.delete', {id: equipment.id}) }}" class="confirmModalLink"><i class="fas fa-trash-alt text-danger"></i></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

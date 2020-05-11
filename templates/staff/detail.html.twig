@@ -1,0 +1,24 @@
+{% extends "common/layout.html.twig" %}
+
+{% block content %}
+{% include "common/modal-confirm.html.twig" %}
+
+    <div class="card border-success">
+        {% if user.id %}
+            <h3 class="card-header">Informations sur {{ user.lastname}} {{ user.firstname}} </h3>
+            {% else %}
+            <h3 class="card-header">Créer votre nouveau membre</h3>
+        {% endif %}
+        <div class="card-body">
+            <img class="img-detail-staff" src="/assets/img/user_{{user.id}}.jpg" alt="">
+            {{ form_start(form) }}  
+            {{ form_rest(form )}}
+                <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Sauvegarder</button>
+                <a href="{{ path('staff') }}" class="btn btn-outline-secondary"><i class="fas fa-reply-all"></i> Retour </a>
+                {% if user.id %}
+                    <a href="{{ path('staff.delete', {id: user.id}) }}" class="confirmModalLink"><i class="fas fa-trash-alt text-danger btn-delete"></i></a>
+                {% endif %}
+            {{ form_end(form) }}
+        </div>
+      </div>
+{% endblock %}

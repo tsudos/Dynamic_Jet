@@ -1,0 +1,50 @@
+{% extends "common/layout.html.twig" %}
+
+{% block title %}Jetski{% endblock title %}
+
+
+{% block content %}
+<div class="row position-block">
+        <div class="col-sm-6">
+          <div class="card card-modify">
+            <a href="{{ path('equipment.list') }}">
+            <div class="card-body">
+                <img class="size-logo-equipement logo" src="/assets/img/Logo_equipements.png" alt="jet_ski_equipement">
+              <h3 class="card-title">EQUIPEMENTS</h3>
+            </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card card-modify">
+            <div class="card-body">
+              <a href="/staff">
+                <img class="size-logo-staff logo" src="/assets/img/Logo_staff.png" alt="jet_ski_staff">
+                <h3 class="card-title">STAFF</h3>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <a href="{{ path('booking.list') }}">
+            <div class="card card-modify">
+              <div class="card-body">
+                <img class="size-logo-reservation logo" src="/assets/img/Logo_reservations.png" alt="jet_ski_reservations">
+                <h3 class="card-title">RESERVATIONS</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6">
+          <a href="{{ path('customer') }}">
+            <div class="card card-modify">
+              <div class="card-body">
+                <img class="size-logo-client logo" src="/assets/img/Logo_client.png" alt="jet_ski_clients">
+                <h3 class="card-title">CLIENTS</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+a {
+    text-decoration: none !important;
+}
+
+.size-logo-equipement{
+    height:35%;
+    width: 35%;
+}
+
+.size-logo-staff{
+    height:50%;
+    width: 50%;
+}
+
+.size-logo-reservation{
+    height:35%;
+    width: 35%;
+}
+
+.size-logo-client{
+    height:15%;
+    width: 32%;
+}
+
+.logo{
+    display: block;
+    margin: auto;
+}
+
+.card-modify{
+    margin-bottom:15px;
+    border-radius: 35px;
+    border: 1px solid #3fa9f5;
+}
+
+.card-modify:hover{
+    background-color: #e0e0e0;
+}
+
+.card-title{
+    text-align:center;
+    padding-top: 15px;
+    color: #000;
+}
+
+.position-block{
+    margin-top: 15px;
+}
+
+body{
+    background-color: #eaf4f4;
+}
+
+.btn{
+    border-radius: 20px;
+}
+
+.login-background {
+    height: 100vh;
+    background-image: url('/assets/img/login-bg.jpg')!important;
+    background-position: center;
+    background-size: cover !important;
+}
+
+.card-login{
+    opacity: 0.8;
+    border-radius:35px!important;
+    margin: auto;
+    width: 700px;
+    margin-top: 200px;
+}
+
+.btn-warning{
+    margin-left: 450px;
+    width: 150px;
+}
+
+.btn-info{
+    margin-left: 450px;
+    width: 150px;
+}
+
+.navbar-brand{
+    margin-left:50px;
+}
+
+#position-small-text{
+    margin-left: 450px;
+}
+
+.card-table {
+    padding: 25px;
+    border-radius: 25px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.card-staff{
+    border-radius:20px;
+}
+
+.card-body-staff{
+    background-color:#fff;
+    border-radius:0px 0px 20px 20px;
+}
+
+.card-header-staff{
+        /* padding: 0.75rem 1.25rem; */
+        margin-bottom: 0;
+        height: 100px;
+        border-radius: 20px 20px 0px 0px;
+        background-color: rgba(0,0,0,0.03);
+        border-bottom: 1px solid rgba(0,0,0,0.125);
+        /*met les images sans deformations / attention a l image de lara croft*/
+        object-fit: cover;
+}
+
+.typographie{
+    color: #2b3c4d!important;
+}
+
+.btn-delete{
+    font-size: 30px;
+    margin-left: 650px;
+}
+
+.img-detail-staff{
+    border-radius: 35px;
+    width: 250px;
+    margin-bottom: 25px;
+}
